@@ -79,7 +79,7 @@ In the uploaded dataset, two suspicious IP addresses were identified performing 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Successful Brute Force Detection Using Splunk ##
+## 2. Successful Brute Force Detection Using Splunk ##
 
 ## Objective
 -The objective of this investigation is to detect successful brute-force login attacks using Splunk SIEM by identifying multiple failed login attempts followed by a successful   authentication event from the same source IP address.
