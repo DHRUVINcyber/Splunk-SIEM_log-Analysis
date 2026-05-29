@@ -228,10 +228,15 @@ Source IP  |  Activity
 ## Findings
 
 -Multiple failed login attempts were detected from a single source IP address.
+
 -The attacker targeted several user accounts within a short period of time.
+
 -Authentication behavior matched password spraying attack patterns.
+
 -A successful login event was observed after repeated failed attempts.
+
 -The compromised user account was identified through successful authentication events.
+
 -The suspicious source IP responsible for the attack activity was successfully identified.
 
 ## Conclusion
@@ -249,8 +254,11 @@ Source IP  |  Activity
 ## Investigation Overview
 
 -Authentication and process creation logs were uploaded into Splunk and analyzed using SPL queries.
+
 =The investigation focused on identifying suspicious PowerShell execution activity commonly used by attackers after successful compromise.
+
 =Multiple PowerShell abuse techniques were detected including EncodedCommand execution, DownloadString payload activity, Invoke-WebRequest usage, and ExecutionPolicy Bypass attempts.
+
 =The investigation also identified successful compromise activity, privileged logon events, and account lockout activity related to suspicious source IP addresses.
 
 ## Query
@@ -331,8 +339,11 @@ index=main src_ip="45.67.210.12" (EventCode=4624 OR EventCode=4688)
 ## Investigation Findings
 
 -Successful login activity was observed.
+
 -Suspicious PowerShell execution occurred after successful authentication.
+
 -Encoded PowerShell commands were executed.
+
 -Payload download behavior was identified.
 
 ### Detect Successful Compromise After Failed Attempts
@@ -393,10 +404,15 @@ index=main EventCode=4688 process=powershell.exe
 ```
 
 ## Detection Logic
+
 -EncodedCommand execution
+
 -DownloadString usage
+
 -Invoke-WebRequest activity
+
 -ExecutionPolicy Bypass attempts
+
 -Suspicious PowerShell abuse behavior
 
 ### Alert Query
@@ -408,17 +424,27 @@ index=main EventCode=4688 process=powershell.exe
 ## Findings
 
 -Suspicious PowerShell activity was successfully detected.
+
 -Encoded PowerShell commands were identified.
+
 -Execution policy bypass attempts were detected.
+
 -PowerShell download activity was observed.
+
 -Successful compromise activity occurred before PowerShell abuse.
+
 -Privileged logon events were detected after successful authentication.
+
 -Account lockout activity indicated repeated failed login attempts.
+
 -The suspicious source IP and compromised user account were successfully identified.
+
 -Authentication and process creation logs helped build a complete attack timeline.
 
 ## Conclusion
 
 -The investigation successfully identified suspicious PowerShell abuse activity using Splunk SIEM.
+
 -SPL queries and Windows process creation logs helped detect attacker behavior, identify compromised systems, analyze suspicious command execution, detect privileged access attempts, and    identify account lockout activity.
+
 -The investigation demonstrated realistic SOC analyst workflows including authentication analysis, PowerShell abuse detection, privileged access monitoring, attack timeline investigation,   and alert creation.
